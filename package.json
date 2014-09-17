@@ -1,0 +1,34 @@
+{
+  "name": "watch-then",
+  "version": "1.0.0",
+  "description": "do something when a file is modified",
+  "main": "index.js",
+  "bin": {
+    "watch-then": "./bin/watch-then"
+  },
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hirokidaichi/watch-then.git"
+  },
+  "keywords": [
+    "commandline",
+    "watchfile",
+    "exec"
+  ],
+  "author": "hirokidaichi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hirokidaichi/watch-then/issues"
+  },
+  "homepage": "https://github.com/hirokidaichi/watch-then",
+  "dependencies": {
+    "clear": "0.0.1",
+    "fs-watch-tree": "^0.2.5"
+  },
+  "devDependencies": {
+    "mocha-jshint": "0.0.9"
+  }
+}
