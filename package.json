@@ -1,6 +1,6 @@
 {
   "name": "watch-then",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "do something when a file is modified",
   "main": "index.js",
   "bin": {
@@ -26,7 +26,8 @@
   "homepage": "https://github.com/hirokidaichi/watch-then",
   "dependencies": {
     "clear": "0.0.1",
-    "fs-watch-tree": "^0.2.5"
+    "fs-watch-tree": "^0.2.5",
+    "ignore": "^2.2.15"
   },
   "devDependencies": {
     "mocha-jshint": "0.0.9"

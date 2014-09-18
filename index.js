@@ -1,6 +1,16 @@
 var watchTree = require("fs-watch-tree").watchTree;
 var clear = require("clear");
+var fs = require("fs");
+var ignore = require("ignore");
 var spawn = require("child_process").spawn;
+
+var ignoreFilter = ignore().addIgnoreFile("./.gitignore");
+
+var excluder = {
+    test: function(file) {
+        return ignoreFilter.filter(file);
+    }
+};
 
 var usage = function() {
     console.error("Usage : watch-then <watchdir> <command> (<delay>)");
@@ -24,8 +34,12 @@ var run = module.exports = function(node, script, dir, command, delay) {
     var wait = delay || 1500;
 
     var events = [];
-    clear();
-    watchTree(dir, function(evt, filename) {
+    execCommand(command, function() {
+        events = [];
+    });
+    watchTree(dir, {
+        excludes: [excluder]
+    }, function(evt, filename) {
         if (events.length === 0) {
             // first time
             setTimeout(function() {
