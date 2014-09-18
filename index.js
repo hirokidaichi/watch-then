@@ -8,7 +8,8 @@ var ignoreFilter = ignore().addIgnoreFile("./.gitignore");
 
 var excluder = {
     test: function(file) {
-        return ignoreFilter.filter(file);
+        var ret = ignoreFilter.filter([file]);
+        return (ret.length === 0);
     }
 };
 
@@ -37,8 +38,8 @@ var run = module.exports = function(node, script, dir, command, delay) {
     execCommand(command, function() {
         events = [];
     });
-    watchTree(dir, {
-        excludes: [excluder]
+    watchTree("./", {
+        exclude: [excluder]
     }, function(evt, filename) {
         if (events.length === 0) {
             // first time

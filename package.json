@@ -1,6 +1,6 @@
 {
   "name": "watch-then",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "do something when a file is modified",
   "main": "index.js",
   "bin": {
